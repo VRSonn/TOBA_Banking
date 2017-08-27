@@ -22,10 +22,10 @@
     <br>
     
     <body>
-        <p>Sign up for TOBA by filling out the form below.</p><br>
-        <br>
+        <p>Sign up for TOBA by filling out the form below.</p>
+        
         <p><i>${message}</i></p> 
-        <br>
+        
         <form action="NewCustomer" method="post">
             <input type="hidden" name="action" value="add">        
             <label>First Name:</label>
