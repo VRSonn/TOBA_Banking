@@ -14,7 +14,7 @@
     
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>toba.login.LoginServlet</servlet-class>      
+        <servlet-class>login.LoginServlet</servlet-class>      
     </servlet>
      <servlet>
         <servlet-name>NewCustomerServlet</servlet-name>
