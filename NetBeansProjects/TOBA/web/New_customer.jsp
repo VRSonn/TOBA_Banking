@@ -2,6 +2,10 @@
     Document   : New_customer
     Created on : Aug 26, 2017, 12:44:43 PM
     Author     : valeriesonntag
+
+New_customer.jsp: This page will allow the user to register for online banking 
+services. It should have a form with a submit button that collects the following
+information. FirstName,LastName,Phone,Address,City,State,Zipcode,Email
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

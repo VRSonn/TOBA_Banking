@@ -21,13 +21,14 @@ public class LoginServlet  extends HttpServlet {
             HttpServletResponse response)
             throws ServletException, IOException {
         
-        String url = "/login.html"; // the login page that we came here from
+        // the login page that we came here from
+        String url = "/login.html"; 
         
         // get the username and password and assign them to variables
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         
-        // Validate the parameters, compare to the correct uname a pword
+        // Validate the parameters, compare to the correct username a password
         String s1 = "jsmith@toba.com"; //correct username
         String s2 = "letmein";   // correct password 
         

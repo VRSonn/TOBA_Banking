@@ -2,6 +2,8 @@
     Document   : Error_java
     Created on : Aug 26, 2017, 1:26:59 PM
     Author     : valeriesonntag
+
+Error_java.jsp: Displays a message that java has thrown an exception.
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

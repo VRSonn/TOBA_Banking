@@ -20,7 +20,9 @@ public class NewCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-     String url = "/NewCustomer"; // declare the url variable to the url of this servlet
+        
+     // declare the url variable to the url of this servlet   
+     String url = "/NewCustomer"; 
         
      // get current action??
      String action = request.getParameter("action");
@@ -44,10 +46,6 @@ public class NewCustomerServlet extends HttpServlet {
         String zip = request.getParameter("zip");
         String email = request.getParameter("email"); 
         
-        //store the data above in a user object, variable named user if we were doing that
-        //User user = new User(firstName, lastName, phone, address, city, state,
-         //        zip, email);
-         //User user = new User();
         
          // validate that all parameters were entered
         String message; // message out so it can be here or for else statement

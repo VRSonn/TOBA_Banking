@@ -1,5 +1,5 @@
 /*
-TransactionServlet – Just create an empty servlet for now.
+TransactionServlet Just create an empty servlet for now.
  */
 package transaction;
 

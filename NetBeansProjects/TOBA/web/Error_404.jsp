@@ -2,6 +2,8 @@
     Document   : Error_404
     Created on : Aug 26, 2017, 1:23:14 PM
     Author     : valeriesonntag
+
+Error_404.jsp: Displays 404 error code.
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
