@@ -13,6 +13,8 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import userJavaBean.User; // import the java bean
+
 
 public class LoginServlet  extends HttpServlet {
 
@@ -22,9 +24,10 @@ public class LoginServlet  extends HttpServlet {
             throws ServletException, IOException {
         
         // the login page that we came here from
-        String url = "/login.html"; 
+        String url = "/login.jsp"; 
         
-        // get the username and password and assign them to variables
+        // get the username and password and assign them to variables from the
+        //login page
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         
@@ -33,13 +36,23 @@ public class LoginServlet  extends HttpServlet {
         String s2 = "letmein";   // correct password 
         
         
+        // Gets the session user from java bean
+        //HttpSession session = request.getSession();
+        //User user = (User) session.getAttribute("user");
+        
+        //for the current if statement?
+        //String s1 = user.getUserName(); //correct username
+        //String s2 = user.getPassword();   // correct password 
+        
+        
         // if the user input matches the secret login go to account activity
         if (s1.equals(username) && s2.equals(password)){
-            url = "/Account_activity.html";
+        //if (user.getUserName().equals(username) && user.getPassword().equals(password)){
+            url = "/Account_activity.jsp";
         }
         // if it doesnt go to failure page
         else {
-            url = "/Login_failure.html";
+            url = "/Login_failure.jsp";
         }
         
         //forward to the url page in the above url strings 

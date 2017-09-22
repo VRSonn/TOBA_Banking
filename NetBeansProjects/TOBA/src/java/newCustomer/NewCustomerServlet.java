@@ -6,12 +6,19 @@ Server Side Validation – Code the NewCustomerServlet to validate the user has
 entered in values for all the form fields. If not, assign a message variable 
 such as “Please fill out all the form fields” and display the message on the 
 new_customer.jsp page.
+
+assignmen 2 add on
+In the NewCustomerServlet, create an instance of the User bean from the new 
+customer form data. The username should consist of their last name combined with
+their zipcode. Give them a temporary password of welcome1.
  */
 package newCustomer;
 
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+
+import userJavaBean.User; // import the java bean
 
 
 public class NewCustomerServlet extends HttpServlet {
@@ -46,7 +53,7 @@ public class NewCustomerServlet extends HttpServlet {
         String zip = request.getParameter("zip");
         String email = request.getParameter("email"); 
         
-        
+      
          // validate that all parameters were entered
         String message; // message out so it can be here or for else statement
         if(firstName == null || lastName == null || phone == null || address == 
@@ -60,11 +67,29 @@ public class NewCustomerServlet extends HttpServlet {
         
         else{
             message = "";
-            url = "/success.html";
+            url = "/success.jsp";
         }
-        //request.setAttribute("user", user); //we dont have a user class yet
+        
+        // Create temp username & password
+        String username = (lastName + zip);
+        String password = "welcome1";
+        
+        //get session
+        HttpSession session = request.getSession();
+        
+         // store data in User object in java bean
+        User user; //declaration
+         user = new User (firstName, lastName, phone, address, city, state, 
+                 zip, email, username, password); // assignment
+        
+        //set user as an attribute of the session
+        session.setAttribute("user", user);
+        
+        //do i need these?
+        request.setAttribute("user", user); //we dont have a user class yet
         request.setAttribute("message", message);   
      }
+     
      
     //forward to the url page in the above url strings 
     getServletContext()

@@ -1,29 +1,15 @@
 <%-- 
-    Document   : New_customer
-    Created on : Aug 26, 2017, 12:44:43 PM
-    Author     : valeriesonntag
-
 New_customer.jsp: This page will allow the user to register for online banking 
 services. It should have a form with a submit button that collects the following
 information. FirstName,LastName,Phone,Address,City,State,Zipcode,Email
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>TOBA :: New Customer</title>
-    </head>
+
+<%@taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:import url="/includes/header.html" />
     
     <h1>New Customer Sign Up</h1>
-    
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="login.html">Login</a>
-    </nav>
-    
-    <br>
     
     <body>
         <p>Sign up for TOBA by filling out the form below.</p>
@@ -51,7 +37,7 @@ information. FirstName,LastName,Phone,Address,City,State,Zipcode,Email
             <input type="text" name="state" value="${user.state}"><br>
             <br>
             <label>Zip Code:</label>
-            <input type="text" name="zip" value="${user.Zip}"><br>
+            <input type="text" name="zip" value="${user.zip}"><br>
             <br>
             <label>Email:</label>
             <input type="email" name="email" value="${user.email}"><br>
@@ -59,6 +45,5 @@ information. FirstName,LastName,Phone,Address,City,State,Zipcode,Email
             <label>&nbsp;</label>
             <input type="submit" value="Sign Up">
         </form>
-    </body>
-    
-</html>
+            
+  <c:import url="/includes/footer.jsp" />
