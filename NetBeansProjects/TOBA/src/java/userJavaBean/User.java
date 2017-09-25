@@ -2,14 +2,25 @@
 Let's begin by creating a JavaBean. Create a User JavaBean. The User bean should
 have all the attributes collected from the new customer form. Also give it a 
 username and password property.
+
+Add annotations for the Entity and ID for the UserDB and MySQL
  */
 package userJavaBean;
 
 // Java Bean must be serializable
 import java.io.Serializable;
-        
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+// Entity tells JPA that this class defines an entity that should be stored in 
+// the database
+@Entity        
 public class User implements Serializable {
     
+    @Id //following field is the primary key
+    @GeneratedValue(strategy = GenerationType.AUTO) //auto create a primary key
     private String firstName;
     private String lastName;
     private String phone;

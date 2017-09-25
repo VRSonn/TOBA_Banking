@@ -7,10 +7,14 @@ entered in values for all the form fields. If not, assign a message variable
 such as “Please fill out all the form fields” and display the message on the 
 new_customer.jsp page.
 
-assignmen 2 add on
+Assignment 2 add on
 In the NewCustomerServlet, create an instance of the User bean from the new 
 customer form data. The username should consist of their last name combined with
 their zipcode. Give them a temporary password of welcome1.
+
+Assignment 3 add on
+In the NewCustomerServlet, modify the code to add the new customer to the 
+database using the UserDB class.
  */
 package newCustomer;
 
@@ -19,6 +23,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 import userJavaBean.User; // import the java bean
+import data.UserDB;
 
 
 public class NewCustomerServlet extends HttpServlet {
@@ -85,9 +90,8 @@ public class NewCustomerServlet extends HttpServlet {
         //set user as an attribute of the session
         session.setAttribute("user", user);
         
-        //do i need these?
-        request.setAttribute("user", user); //we dont have a user class yet
-        request.setAttribute("message", message);   
+        //insert the user to the userDB 
+        UserDB.insert(user);
      }
      
      
