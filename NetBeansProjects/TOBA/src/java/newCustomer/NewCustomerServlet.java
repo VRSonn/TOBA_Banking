@@ -72,26 +72,45 @@ public class NewCustomerServlet extends HttpServlet {
         
         else{
             message = "";
+            
+            // Create temp username & password
+            String username = (lastName + zip);
+            String password = "welcome1";
+        
+            //get session
+            HttpSession session = request.getSession();
+            
+            // store data in User object in java bean
+            User user; //declaration
+            user = new User (firstName, lastName, phone, address, city, state, 
+                 zip, email, username, password); // assignment
+            
+            //set user as an attribute of the session
+            session.setAttribute("user", user);
+        
+            //insert the user to the userDB 
+            UserDB.insert(user);
+        
             url = "/success.jsp";
         }
         
         // Create temp username & password
-        String username = (lastName + zip);
-        String password = "welcome1";
+        //String username = (lastName + zip);
+        //String password = "welcome1";
         
         //get session
-        HttpSession session = request.getSession();
+        //HttpSession session = request.getSession();
         
          // store data in User object in java bean
-        User user; //declaration
-         user = new User (firstName, lastName, phone, address, city, state, 
-                 zip, email, username, password); // assignment
+        //User user; //declaration
+        // user = new User (firstName, lastName, phone, address, city, state, 
+                 //zip, email, username, password); // assignment
         
         //set user as an attribute of the session
-        session.setAttribute("user", user);
+        //session.setAttribute("user", user);
         
         //insert the user to the userDB 
-        UserDB.insert(user);
+        //UserDB.insert(user);
      }
      
      

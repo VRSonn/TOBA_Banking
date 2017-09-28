@@ -21,6 +21,7 @@ public class User implements Serializable {
     
     @Id //following field is the primary key
     @GeneratedValue(strategy = GenerationType.AUTO) //auto create a primary key
+    private Long userId;
     private String firstName;
     private String lastName;
     private String phone;
@@ -46,7 +47,7 @@ public class User implements Serializable {
      password = "";
     }
     
-    //Assign the strings to this instance of the variable
+    //Assign the strings to this instance of the variable, connects with newCustomerServlet
     public User(String firstName, String lastName, String phone, String address, 
             String city, String state, String zip, String email, String username,
             String password){
@@ -61,16 +62,18 @@ public class User implements Serializable {
         this.email = email; 
         this.username = username;
         this.password = password;
-
        
     }
-
-    //automated for newcustomer servlet??? needed for user object would not connect to above
-    //public User(String firstName, String lastName, String phone, String address, String city, String state, String zip, String email) {
-      //  throw new UnsupportedOperationException("Not supported yet."); 
-    //}
     
     //Java Beans need to have get and set methods
+    
+    public Long getUserId(){
+        return userId;
+    }
+    
+    public void setUserId(Long userId){
+        this.userId = userId;
+    }
     
     //get first name
     public String getFirstName() {
