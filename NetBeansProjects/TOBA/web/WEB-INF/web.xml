@@ -5,7 +5,41 @@
 	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	 version="3.1">
     
+    <!-- Define security roles -->
+    <security-role>
+        <description>Administrator privilages</description>
+        <role-name>admin</role-name>
+    </security-role>
+    
+    
+     <!-- Restrict access to all files in the /admin folder -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Protected Area</web-resource-name>
+            <url-pattern>/admin/*</url-pattern>
+        </web-resource-collection>
+        
+    <!-- Authorize the admin roles -->
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    
+    <!-- Require a secure connection -->
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    
+     <!-- Form-based Authentication -->
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/admin/login.html</form-login-page>
+            <form-error-page>/admin/login_failure.html</form-error-page>
+        </form-login-config>
+    </login-config>
    
+    <!-- Servlet naming -->
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>login.LoginServlet</servlet-class>      
@@ -23,6 +57,7 @@
         <servlet-class>resetPassword.ResetPasswordServlet</servlet-class>      
     </servlet>
     
+    <!-- Servlet mapping -->
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/customerLogin</url-pattern>
@@ -40,7 +75,7 @@
         <url-pattern>/ResetPassword</url-pattern>
     </servlet-mapping>
     
-   <!-- 
+
     <error-page>
         <error-code>404</error-code>
         <location>/Error_404.jsp</location>
@@ -49,7 +84,7 @@
         <exception-type>java.lang.Throwable</exception-type>
         <location>/Error_java.jsp</location>
     </error-page>
-    -->
+    
 
     <session-config>
         <session-timeout>30</session-timeout>

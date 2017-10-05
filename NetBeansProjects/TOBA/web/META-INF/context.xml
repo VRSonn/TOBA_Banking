@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/TOBA"/>
+<Context path="/TOBA">
+
 
   <Resource auth="Container" 
             driverClassName="com.mysql.jdbc.Driver" 
@@ -15,4 +16,16 @@
             type="javax.sql.DataSource"
             url="jdbc:mysql://localhost:3306/TOBA?autoReconnect=true" 
             />
+  
+  <!--< Implement the DataSourceRealm -->
+    <Realm className="org.apache.catalina.realm.DataSourceRealm" 
+           debug="99" 
+           dataSourceName="jdbc/TOBA" 
+           localDataSource="true" 
+           userTable="UserPass" 
+           userNameCol="Username" 
+           userCredCol="Password" 
+           userRoleTable="UserRole" 
+           roleNameCol="Rolename" />  
+                     
 </Context>
